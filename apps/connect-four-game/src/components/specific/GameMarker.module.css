@@ -1,0 +1,40 @@
+@value breakpoints: "../../styles/breakpoints.module.css";
+@value tablet, tabletMini, mobile from breakpoints;
+
+.wrapper {
+    position: absolute;
+    top: -36px;
+    left: 0;
+    transition: left 0.5s;
+    @media (max-width: tabletMini) {
+        display: none;
+    }
+}
+
+.xCor0 {
+    left: calc(5.06%); /* 32px / 632px */
+}
+
+.xCor1 {
+    left: calc(18.99%); /* 120px / 632px */
+}
+
+.xCor2 {
+    left: calc(32.91%); /* 208px / 632px */
+}
+
+.xCor3 {
+    left: calc(46.83%); /* 296px / 632px */
+}
+
+.xCor4 {
+    left: calc(60.76%); /* 384px / 632px */
+}
+
+.xCor5 {
+    left: calc(74.68%); /* 472px / 632px */
+}
+
+.xCor6 {
+    left: calc(88.61%); /* 560px / 632px */
+}

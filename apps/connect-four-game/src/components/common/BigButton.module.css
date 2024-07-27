@@ -1,0 +1,32 @@
+@value headings: "../../styles/headings.module.css";
+@value headingM from headings;
+@value colors: "../../styles/colors.module.css";
+@value colorBlack, colorDarkPurple from colors;
+@value breakpoints: "../../styles/breakpoints.module.css";
+@value mobile, tablet from breakpoints;
+
+.wrapper {
+    width: 393px;
+    height: 66px;
+    border: 3px solid colorBlack;
+    border-radius: 20px;
+    box-shadow: 0 10px 0 0 colorBlack;
+    cursor: pointer;
+    composes: headingM;
+    position: relative;
+    top: 0px;
+    transition: border 0.3s, box-shadow 0.3s, top 0.3s;
+    @media (max-width: mobile) {
+        width: 329px;
+    }
+}
+
+.wrapper:hover {
+    border: 3px solid colorDarkPurple;
+    top: 8px;
+    box-shadow: 0 2px 0 0 colorDarkPurple;
+    @media (max-width: tablet) {
+        top: 0px;
+        box-shadow: 0 10px 0 0 colorBlack;
+    }
+}

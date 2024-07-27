@@ -1,0 +1,55 @@
+@value breakpoints: "../../styles/breakpoints.module.css";
+@value tablet, tabletMini from breakpoints;
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    max-width: 1023px;
+    width: 100%;
+    @media (max-width: tablet) {
+        justify-content: center;
+        max-width: 632px;
+        position: relative;
+    }
+    @media (max-width: tabletMini) {
+        margin: 0 19px;
+    }
+}
+
+.leftBoard {
+    @media (max-width: tablet) {
+        left: 27px;
+    }
+    @media (max-width: tabletMini) {
+        left: 15px;
+    }
+}
+
+.leftBoard img {
+    @media (max-width: tablet) {
+        left: -27px;
+    }
+}
+
+.rightBoard {
+    @media (max-width: tablet) {
+        right: 27px;
+        flex-direction: row-reverse;
+    }
+    @media (max-width: tabletMini) {
+        right: 15px;
+    }
+}
+
+.rightBoard img {
+    @media (max-width: tablet) {
+        left: unset;
+        right: -27px;
+    }
+}

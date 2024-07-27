@@ -1,0 +1,9 @@
+{
+  "name": "connect-four-game",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/connect-four-game/src",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project connect-four-game --web",
+  "targets": {}
+}
