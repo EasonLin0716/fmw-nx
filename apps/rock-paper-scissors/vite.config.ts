@@ -6,6 +6,7 @@ import WindiCSS from 'vite-plugin-windicss';
 
 export default defineConfig({
   root: __dirname,
+  base: './',
   cacheDir: '../../node_modules/.vite/apps/rock-paper-scissors',
 
   server: {
