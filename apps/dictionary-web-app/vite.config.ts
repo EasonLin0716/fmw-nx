@@ -9,4 +9,12 @@ export default defineConfig({
     port: 4200,
     host: 'localhost',
   },
+  build: {
+    outDir: '../../dist/apps/dictionary-web-app',
+    emptyOutDir: true,
+    reportCompressedSize: true,
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
+  },
 });
