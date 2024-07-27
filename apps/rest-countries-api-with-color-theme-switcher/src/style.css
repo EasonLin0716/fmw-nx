@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --dark-mode-dark-blue: hsl(209, 23%, 22%);
+  --dark-mode-very-dark-blue: hsl(207, 26%, 17%);
+  --light-mode-very-dark-blue: hsl(200, 15%, 8%);
+  --light-mode-dark-gray: hsl(0, 0%, 52%);
+  --light-mode-very-light-gray: hsl(0, 0%, 98%);
+  --common-white: hsl(0, 0%, 100%);
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  background-color: var(--light-mode-very-light-gray);
+}
+
+html, body {
+  @apply w-full h-full;
+}
+
+.flag-detail__img {
+  @apply self-baseline;
+  aspect-ratio: 3 / 2;
+}
+
+.app-select {
+  @apply relative text-left px-5 py-4 bg-white shadow rounded appearance-none active:outline-none focus:outline-none w-52 bg-no-repeat;
+}
+
+.app-select.is-dark {
+  @apply bg-[var(--dark-mode-dark-blue)] text-white;
+}
+
+.app-select:focus ul {
+  display: unset;
+}

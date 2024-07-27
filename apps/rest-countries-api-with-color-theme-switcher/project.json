@@ -1,0 +1,8 @@
+{
+  "name": "rest-countries-api-with-color-theme-switcher",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/rest-countries-api-with-color-theme-switcher/src",
+  "// targets": "to see all targets run: nx show project rest-countries-api-with-color-theme-switcher --web",
+  "targets": {}
+}
