@@ -1,6 +1,6 @@
-# Connect-four-game
+# Calculator-app-main
 
-A classic connect four game with React, React Router, CSS module, TypeScript and Vite.
+A caculator without any extra lib or bundler, just vanilla CSS and vanilla Javascript.
 
 - Demo - [Github Page](https://easonlin0716.github.io/fmw-nx/apps/calculator-app-main/index.html)
 - Source Code - [Github Repo](https://github.com/EasonLin0716/fmw-nx/tree/main/apps/calculator-app-main)
