@@ -4,7 +4,7 @@ const THEME_HREF_PREFIX = 'assets/css/theme-';
 switchBar.addEventListener('click', changeTheme);
 
 function changeTheme() {
-  const theme = document.querySelector('link.theme');
+  const theme = document.querySelector('link#theme');
   if (!theme) {
     console.error('[changeTheme Error] theme not found');
     return false;
