@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { ref, reactive, defineEmits } from 'vue';
+import { defineEmits, ref, reactive, computed, watch } from 'vue';
+const emit = defineEmits(['setNewSortBy']);
 const isActive = ref<boolean>(false);
 const currentSortByIndex = ref<number>(0);
 const menuItems = reactive([
@@ -8,20 +9,27 @@ const menuItems = reactive([
     'Most comments',
     'Least comments'
 ]);
+const activeMenuItem = computed<string>(() => menuItems[currentSortByIndex.value]);
+watch(isActive, (newValue) => {
+    if (newValue === true) {
+        document.addEventListener('click', () => {
+            isActive.value = false;
+        }, { once: true });
+    }
+});
 const setNewSortBy = (index: number): void => {
     currentSortByIndex.value = index;
     emit('setNewSortBy', index);
 };
-const emit = defineEmits(['setNewSortBy']);
 </script>
 
 <template>
     <div :class="{
         'wrapper': true,
         'is-active': isActive
-    }">
+    }" @click.stop>
         <button class="container" @click="isActive = !isActive">
-            <p>Sort by : <span>Most Upvotes</span></p>
+            <p>Sort by : <span>{{ activeMenuItem }}</span></p>
             <img src="/images/shared/icon-arrow-down-white.svg" alt="Arrow down" />
         </button>
         <div class="menu">
