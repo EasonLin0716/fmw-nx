@@ -4,3 +4,10 @@
 body {
   font-family: 'Jost', sans-serif;
 }
+
+button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}

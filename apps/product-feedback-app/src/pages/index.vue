@@ -1,6 +1,6 @@
 <template>
     <div>
-        <UpvoteInteractiveButton :count="3" />
+        <SortByMenu />
         Frontend Mentor
         Feedback Board
 
