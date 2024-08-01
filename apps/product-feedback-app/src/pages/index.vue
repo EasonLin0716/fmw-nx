@@ -1,5 +1,6 @@
 <template>
     <div>
+        <UpvoteInteractiveButton :count="3" />
         Frontend Mentor
         Feedback Board
 

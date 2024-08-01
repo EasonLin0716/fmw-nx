@@ -1,4 +1,3 @@
-// goBackButton.vue
 <script lang="ts" setup>
 import { defineProps } from 'vue';
 
@@ -30,6 +29,10 @@ const props = defineProps<{
     font-weight: 700;
     cursor: pointer;
     background-color: transparent;
+
+    &:hover {
+        text-decoration: underline;
+    }
 
     &.is-dark {
         background-color: #373F68;
