@@ -2,11 +2,13 @@
 import { ref } from 'vue';
 import AppMenu from './AppMenu.vue';
 import { useClickOutside } from '../composables/useClickOutside';
+import { useActiveMenuItem } from '../composables/useActiveMenuItem';
 
 const isActive = ref<boolean>(false);
 const currentSortByIndex = ref<number>(0);
 const menuItems = ['Feature', 'UI', 'UX', 'Enhancement', 'Bug'];
 
+const { activeMenuItem } = useActiveMenuItem(menuItems, currentSortByIndex);
 useClickOutside(isActive);
 
 const setNewSortBy = (index: number): void => {
@@ -21,7 +23,7 @@ const setNewSortBy = (index: number): void => {
         'is-active': isActive
     }">
         <SearchFeatContainer :isActive class="search-feat-container" @click.stop="isActive = true">
-            <span>Feature</span>
+            <span>{{ activeMenuItem }}</span>
             <img src="/images/shared/icon-arrow-down-blue.svg" alt="">
         </SearchFeatContainer>
         <AppMenu :items="menuItems" :currentSortByIndex="currentSortByIndex" class="menu"

@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { defineEmits, ref, reactive, computed, watch } from 'vue';
 import { useClickOutside } from '../composables/useClickOutside';
+import { useActiveMenuItem } from '../composables/useActiveMenuItem';
 const emit = defineEmits(['setNewSortBy']);
 const isActive = ref<boolean>(false);
 const currentSortByIndex = ref<number>(0);
@@ -10,7 +11,7 @@ const menuItems = reactive([
     'Most comments',
     'Least comments'
 ]);
-const activeMenuItem = computed<string>(() => menuItems[currentSortByIndex.value]);
+const { activeMenuItem } = useActiveMenuItem(menuItems, currentSortByIndex);
 useClickOutside(isActive);
 const setNewSortBy = (index: number): void => {
     currentSortByIndex.value = index;
