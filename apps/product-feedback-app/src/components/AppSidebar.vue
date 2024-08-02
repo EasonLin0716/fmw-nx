@@ -1,5 +1,8 @@
+<script lang="ts" setup></script>
+
 <template>
-    <div>
+    <div class="app-sidebar">
+        <SidebarHeader />
         <!-- Sidebar -->
         All
         UI
@@ -18,3 +21,9 @@
         <!-- Sidebar end -->
     </div>
 </template>
+
+<style lang="css" scoped>
+.app-sidebar {
+    max-width: 255px;
+}
+</style>
