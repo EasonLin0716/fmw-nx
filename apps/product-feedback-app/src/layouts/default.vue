@@ -10,5 +10,6 @@
     padding-top: 94px;
     display: flex;
     justify-content: center;
+    gap: 30px;
 }
 </style>

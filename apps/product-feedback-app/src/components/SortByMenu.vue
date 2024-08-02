@@ -21,20 +21,20 @@ const setNewSortBy = (index: number): void => {
 
 <template>
     <div :class="{
-        'wrapper': true,
+        'sort-by-menu': true,
         'is-active': isActive
     }" @click.stop>
         <button class="container" @click="isActive = !isActive">
             <p>Sort by : <span>{{ activeMenuItem }}</span></p>
-            <img src="/images/shared/icon-arrow-down-white.svg" alt="Arrow down" />
+            <img class="arrow-icon" src="/images/shared/icon-arrow-down-white.svg" alt="Arrow down" />
         </button>
-        <AppDropdown :items="menuItems" :currentSortByIndex="currentSortByIndex" class="menu"
+        <AppMenu :items="menuItems" :currentSortByIndex="currentSortByIndex" class="menu"
             @setNewSortBy="setNewSortBy" />
     </div>
 </template>
 
 <style lang="css" scoped>
-.wrapper {
+.sort-by-menu {
     position: relative;
 
     &.is-active {
@@ -44,21 +44,27 @@ const setNewSortBy = (index: number): void => {
             }
         }
 
+        .arrow-icon {
+            transform: rotate(180deg);
+        }
+
         .menu {
             display: flex;
             position: absolute;
-            top: calc(100% + 16px);
+            top: calc(100% + 42px);
             left: 0;
         }
     }
 }
 
+.arrow-icon {
+    transition: transform 0.3s;
+}
+
 .container {
     cursor: pointer;
     border-radius: 10px;
-    background: #373F68;
     width: 194px;
-    height: 72px;
     display: flex;
     align-items: center;
     justify-content: center;
