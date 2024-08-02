@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { defineEmits, ref, reactive, computed, watch } from 'vue';
+import { useClickOutside } from '../composables/useClickOutside';
 const emit = defineEmits(['setNewSortBy']);
 const isActive = ref<boolean>(false);
 const currentSortByIndex = ref<number>(0);
@@ -10,13 +11,7 @@ const menuItems = reactive([
     'Least comments'
 ]);
 const activeMenuItem = computed<string>(() => menuItems[currentSortByIndex.value]);
-watch(isActive, (newValue) => {
-    if (newValue === true) {
-        document.addEventListener('click', () => {
-            isActive.value = false;
-        }, { once: true });
-    }
-});
+useClickOutside(isActive);
 const setNewSortBy = (index: number): void => {
     currentSortByIndex.value = index;
     emit('setNewSortBy', index);
@@ -32,15 +27,12 @@ const setNewSortBy = (index: number): void => {
             <p>Sort by : <span>{{ activeMenuItem }}</span></p>
             <img src="/images/shared/icon-arrow-down-white.svg" alt="Arrow down" />
         </button>
-        <div class="menu">
-            <button v-for="(item, index) in menuItems" :key="index" :class="{
-                'is-current': index === currentSortByIndex
-            }" @click="setNewSortBy(index)">{{ item }}</button>
-        </div>
+        <AppDropdown :items="menuItems" :currentSortByIndex="currentSortByIndex" class="menu"
+            @setNewSortBy="setNewSortBy" />
     </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .wrapper {
     position: relative;
 
@@ -53,6 +45,9 @@ const setNewSortBy = (index: number): void => {
 
         .menu {
             display: flex;
+            position: absolute;
+            top: calc(100% + 16px);
+            left: 0;
         }
     }
 }
@@ -78,40 +73,5 @@ const setNewSortBy = (index: number): void => {
     span {
         font-weight: 700;
     }
-}
-
-.menu {
-    display: none;
-    position: absolute;
-    top: calc(100% + 16px);
-    left: 0;
-    width: 255px;
-    background-color: var(--white);
-    border-radius: 10px;
-    flex-direction: column;
-    box-shadow: 0px 10px 40px -7px rgba(55, 63, 104, 0.35);
-    z-index: 1;
-
-    button {
-        text-align: left;
-        padding: 12px 0 12px 24px;
-        color: var(--gray-400);
-        line-height: 23px;
-
-        &:hover {
-            color: var(--purple);
-        }
-
-        &:not(:last-child) {
-            border-bottom: 1px solid rgb(58, 67, 116, 0.15);
-        }
-
-        &.is-current {
-            background-image: url('/images/shared/icon-check.svg');
-            background-repeat: no-repeat;
-            background-position: center right 24px;
-        }
-    }
-
 }
 </style>

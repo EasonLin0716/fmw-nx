@@ -6,7 +6,7 @@
     </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .interactive-button-container {
     border-radius: 10px;
     background-color: #F2F4FE;

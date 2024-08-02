@@ -14,7 +14,7 @@ const props = defineProps<{
     </button>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .go-back-button {
     width: 158px;
     height: 53px;

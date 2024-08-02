@@ -11,7 +11,7 @@ const props = defineProps<{
     </button>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 @import '~/assets/css/_button-themes.css';
 
 .app-button {

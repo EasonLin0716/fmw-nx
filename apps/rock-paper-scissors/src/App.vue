@@ -6,22 +6,22 @@ import GameRules from './components/GameRules.vue'
 import PickText from './components/PickText.vue'
 import WinningWave from './components/WinningWave.vue'
 const moveCardData = ref({
-    rock: {
-      beats: ['lizard', 'scissors']
-    },
-    paper: {
-      beats: ['rock', 'spock']
-    },
-    scissors: {
-      beats: ['paper', 'lizard']
-    },
-    lizard: {
-      beats: ['paper', 'spock']
-    },
-    spock: {
-      beats: ['scissors', 'rock']
-    }
-  })
+  rock: {
+    beats: ['lizard', 'scissors']
+  },
+  paper: {
+    beats: ['rock', 'spock']
+  },
+  scissors: {
+    beats: ['paper', 'lizard']
+  },
+  lizard: {
+    beats: ['paper', 'spock']
+  },
+  spock: {
+    beats: ['scissors', 'rock']
+  }
+})
 const gameStateMap = computed(() => ({
   0: 'pending',
   1: 'you win',
@@ -81,47 +81,33 @@ function resetGame() {
   <div class="max-w-[1024px] mx-auto pt-10">
     <ScoreBoard :cardList="cardList" :score="score" />
     <div v-if="playerChosenCard && houseChosenCard" class="flex justify-between">
-      <div :class="{ 'grid-cols-2': !gameState, 'pc:grid-cols-3 grid-cols-2': gameState }" class="grid gap-12 items-center justify-items-center mx-auto">
-          <PickText class="pc:row-start-auto row-start-2" />
-          <div v-if="gameState" class="pc:block hidden"></div>
-          <PickText :isPlayer="false" />
-          <div class="relative pc:row-start-auto pc:col-start-auto row-start-1 col-start-1">
-            <MoveCard 
-              :svgLink="playerChosenCard" 
-              :class="playerChosenCard" 
-              class="z-10 relative left-0 top-0"
-              size="lg"
-            />
-            <WinningWave v-if="gameState === 1" />
-          </div>
-          <div v-if="gameState" class="pc:col-auto pc:mt-0 col-span-2 mt-8 flex flex-col justify-center">
-            <p class="uppercase text-white font-bold text-5xl mb-4 text-center">{{ gameStateMap[gameState] }}</p>
-            <button class="bg-white rounded-lg uppercase text-sm font-bold tracking-widest py-4 px-10" @click="resetGame">play again</button>
-          </div>
-          <div class="relative pc:row-start-auto pc:col-start-auto row-start-1 col-start-2 ">
-            <MoveCard 
-              :svgLink="houseChosenCard" 
-              :class="houseChosenCard" 
-              class="z-10 relative left-0 top-0"
-              size="lg"
-            />
-            <WinningWave v-if="gameState === 2" />
-          </div>
+      <div :class="{ 'grid-cols-2': !gameState, 'pc:grid-cols-3 grid-cols-2': gameState }"
+        class="grid gap-12 items-center justify-items-center mx-auto">
+        <PickText class="pc:row-start-auto row-start-2" />
+        <div v-if="gameState" class="pc:block hidden"></div>
+        <PickText :isPlayer="false" />
+        <div class="relative pc:row-start-auto pc:col-start-auto row-start-1 col-start-1">
+          <MoveCard :svgLink="playerChosenCard" :class="playerChosenCard" class="z-10 relative left-0 top-0"
+            size="lg" />
+          <WinningWave v-if="gameState === 1" />
+        </div>
+        <div v-if="gameState" class="pc:col-auto pc:mt-0 col-span-2 mt-8 flex flex-col justify-center">
+          <p class="uppercase text-white font-bold text-5xl mb-4 text-center">{{ gameStateMap[gameState] }}</p>
+          <button class="bg-white rounded-lg uppercase text-sm font-bold tracking-widest py-4 px-10"
+            @click="resetGame">play again</button>
+        </div>
+        <div class="relative pc:row-start-auto pc:col-start-auto row-start-1 col-start-2 ">
+          <MoveCard :svgLink="houseChosenCard" :class="houseChosenCard" class="z-10 relative left-0 top-0" size="lg" />
+          <WinningWave v-if="gameState === 2" />
+        </div>
       </div>
     </div>
     <div v-else class="bg-pentagon mx-auto mt-24">
-      <MoveCard 
-        v-for="card in cardList" 
-        :key="card" 
-        :svgLink="card" 
-        :class="card" 
-        class="absolute"
-        @click="playerChoose(card)"
-      />
+      <MoveCard v-for="card in cardList" :key="card" :svgLink="card" :class="card" class="absolute"
+        @click="playerChoose(card)" />
     </div>
   </div>
   <GameRules />
 </template>
 
-<style scoped>
-</style>
+<style lang="css" scoped></style>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <SortByMenu />
+        <AppDropdown />
         Frontend Mentor
         Feedback Board
 

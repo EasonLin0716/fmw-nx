@@ -13,7 +13,7 @@ const props = defineProps<{
     </InteractiveButtonContainer>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 span {
     color: var(--gray-300);
     font-size: 13px;

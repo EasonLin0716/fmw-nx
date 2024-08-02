@@ -51,7 +51,7 @@ const updateSearchInputInDelay = debounce((event) => {
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .read-the-docs {
   color: #888;
 }
