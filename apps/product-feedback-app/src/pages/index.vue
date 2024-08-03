@@ -24,4 +24,10 @@ getFeedbacks().then(data => {
     flex-direction: column;
     gap: 24px;
 }
+
+.feedback-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 </style>

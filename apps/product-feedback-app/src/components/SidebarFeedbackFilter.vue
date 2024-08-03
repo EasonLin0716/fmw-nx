@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
-const filterList = reactive([
-    { id: 1, name: 'All', isActive: true },
-    { id: 2, name: 'UI', isActive: false },
-    { id: 3, name: 'UX', isActive: false },
-    { id: 4, name: 'Enhancement', isActive: false },
-    { id: 5, name: 'Bug', isActive: false },
-    { id: 6, name: 'Feature', isActive: false },
-])
-const handleFilter = (id: number) => {
+import { filterData } from '../utils/constants';
+const _getInitialFilterList = (filterData) => {
+    const res = [...filterData];
+    res.forEach(item => {
+        item.isActive = item.value === 0;
+    });
+    return res;
+}
+const filterList = reactive(_getInitialFilterList(filterData));
+const handleFilter = (value: number) => {
     filterList.forEach(filter => {
-        filter.isActive = filter.id === id;
+        filter.isActive = filter.value === value;
     });
 }
 </script>
@@ -18,7 +19,7 @@ const handleFilter = (id: number) => {
 <template>
     <div class="sidebar-feedback-filter">
         <AppFilterButton v-for="(filter, index) in filterList" :key="index" :isActive="filter.isActive"
-            @filter="handleFilter(filter.id)">
+            @filter="handleFilter(filter.value)">
             {{ filter.name }}
         </AppFilterButton>
     </div>

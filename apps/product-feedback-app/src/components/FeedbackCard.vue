@@ -1,14 +1,20 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+import { filterData } from '../utils/constants';
 interface IFeedbackCard {
     upvotes: number;
     title: string;
     description: string;
     commentCount: number;
-    filterText: string;
+    filterValue: number;
 }
 const props = defineProps<{
     data: IFeedbackCard
 }>();
+const filterText = computed<string>(() => {
+    const found = filterData.find(item => item.value === props.data.filterValue);
+    return found ? found.name : '';
+})
 </script>
 
 <template>
@@ -17,7 +23,7 @@ const props = defineProps<{
         <div class="info">
             <h2>{{ data.title }} </h2>
             <p>{{ data.description }}</p>
-            <AppFilterButton>{{ data.filterText }}</AppFilterButton>
+            <AppFilterButton>{{ filterText }}</AppFilterButton>
         </div>
         <div v-if="data.commentCount" class="comment-bar">
             <img src="/images/shared/icon-comments.svg" alt="對話框">
