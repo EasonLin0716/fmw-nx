@@ -10,9 +10,10 @@ getFeedbacks().then(data => {
 <template>
     <div class="wrapper">
         <IndexToolbar />
-        <div class="feedback-container">
+        <div v-if="feedbacks && feedbacks.length" class="feedback-container">
             <FeedbackCard v-for="(data, index) in feedbacks" :data="data" :key="index" />
         </div>
+        <NoFeedback v-else />
     </div>
 </template>
 

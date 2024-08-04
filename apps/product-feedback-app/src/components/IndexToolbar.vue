@@ -9,7 +9,7 @@
             <span>6 Suggestions</span>
             <SortByMenu />
         </div>
-        <NuxtLink to="/" class="toolbar-link">+ Add Feedback</NuxtLink>
+        <AddFeedback />
     </div>
 </template>
 
@@ -37,22 +37,6 @@
         font-weight: 700;
         letter-spacing: -0.25px;
         white-space: nowrap;
-    }
-}
-
-.toolbar-link {
-    width: 158px;
-    height: 44px;
-    border-radius: 10px;
-    text-decoration: none;
-    color: var(--white);
-    background-color: var(--purple);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &:hover {
-        background-color: var(--purple-hover);
     }
 }
 </style>

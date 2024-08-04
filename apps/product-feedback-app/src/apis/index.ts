@@ -1,3 +1,5 @@
+import { sleep } from '../utils/helpers';
+
 export const getFeedbacks = async () => {
   const response = [
     {
@@ -72,6 +74,6 @@ export const getFeedbacks = async () => {
       filterValue: 5,
     },
   ];
-
+  await sleep();
   return response;
 };
