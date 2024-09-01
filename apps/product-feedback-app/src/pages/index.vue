@@ -8,16 +8,26 @@ getFeedbacks().then(data => {
 </script>
 
 <template>
-    <div class="wrapper">
-        <IndexToolbar />
-        <div v-if="feedbacks && feedbacks.length" class="feedback-container">
-            <FeedbackCard v-for="(data, index) in feedbacks" :data="data" :key="index" />
+    <main>
+        <AppSidebar />
+        <div class="wrapper">
+            <IndexToolbar />
+            <div v-if="feedbacks && feedbacks.length" class="feedback-container">
+                <FeedbackCard v-for="(data, index) in feedbacks" :data="data" :key="index" />
+            </div>
+            <NoFeedback v-else />
         </div>
-        <NoFeedback v-else />
-    </div>
+    </main>
 </template>
 
 <style lang="css" scoped>
+main {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding-top: 14px;
+}
+
 .wrapper {
     max-width: 825px;
     width: 100%;

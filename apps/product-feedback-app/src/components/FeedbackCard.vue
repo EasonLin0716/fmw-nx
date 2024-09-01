@@ -2,6 +2,7 @@
 import { computed } from 'vue';
 import { filterData } from '../utils/constants';
 interface IFeedbackCard {
+    id: number;
     upvotes: number;
     title: string;
     description: string;
@@ -18,10 +19,12 @@ const filterText = computed<string>(() => {
 </script>
 
 <template>
-    <div class="feedback-card">
+    <CardContainer>
         <UpvoteInteractiveButton :count="data.upvotes" />
         <div class="info">
-            <h2>{{ data.title }} </h2>
+            <NuxtLink :to="`/feedback/${data.id}`">
+                <h2>{{ data.title }}</h2>
+            </NuxtLink>
             <p>{{ data.description }}</p>
             <AppFilterButton>{{ filterText }}</AppFilterButton>
         </div>
@@ -29,21 +32,16 @@ const filterText = computed<string>(() => {
             <img src="/images/shared/icon-comments.svg" alt="對話框">
             <span>{{ data.commentCount }}</span>
         </div>
-    </div>
+    </CardContainer>
 </template>
 
 <style lang="css" scoped>
-.feedback-card {
-    border-radius: 10px;
-    background-color: var(--white);
-    padding: 28px 32px;
-    display: flex;
-    align-items: start;
-    gap: 40px;
-    position: relative;
-}
 
 .info {
+    a {
+        text-decoration: none;
+    }
+
     h2 {
         color: var(--gray-300);
         font-size: 18px;

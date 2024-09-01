@@ -3,6 +3,7 @@ import { sleep } from '../utils/helpers';
 export const getFeedbacks = async () => {
   const response = [
     {
+      id: 1,
       upvotes: 75,
       title: 'Add a mobile app',
       description: 'Add a mobile app for iOS and Android',
@@ -10,6 +11,7 @@ export const getFeedbacks = async () => {
       filterValue: 3,
     },
     {
+      id: 2,
       upvotes: 45,
       title: 'Improve dashboard',
       description: 'Enhance the dashboard with more features',
@@ -17,6 +19,7 @@ export const getFeedbacks = async () => {
       filterValue: 2,
     },
     {
+      id: 3,
       upvotes: 30,
       title: 'Add dark mode',
       description: 'Implement dark mode across the application',
@@ -24,6 +27,7 @@ export const getFeedbacks = async () => {
       filterValue: 1,
     },
     {
+      id: 4,
       upvotes: 95,
       title: 'Allow custom themes',
       description: 'Allow users to create and apply custom themes',
@@ -31,6 +35,7 @@ export const getFeedbacks = async () => {
       filterValue: 4,
     },
     {
+      id: 5,
       upvotes: 65,
       title: 'Integrate with third-party services',
       description: 'Provide integrations with popular third-party services',
@@ -38,6 +43,7 @@ export const getFeedbacks = async () => {
       filterValue: 5,
     },
     {
+      id: 6,
       upvotes: 80,
       title: 'Improve performance',
       description: 'Optimize the application for better performance',
@@ -45,6 +51,7 @@ export const getFeedbacks = async () => {
       filterValue: 2,
     },
     {
+      id: 7,
       upvotes: 40,
       title: 'Add offline support',
       description: 'Allow the application to work offline',
@@ -52,6 +59,7 @@ export const getFeedbacks = async () => {
       filterValue: 3,
     },
     {
+      id: 8,
       upvotes: 90,
       title: 'Improve accessibility',
       description:
@@ -60,6 +68,7 @@ export const getFeedbacks = async () => {
       filterValue: 1,
     },
     {
+      id: 9,
       upvotes: 25,
       title: 'Add multi-language support',
       description: 'Support multiple languages in the application',
@@ -67,6 +76,7 @@ export const getFeedbacks = async () => {
       filterValue: 4,
     },
     {
+      id: 10,
       upvotes: 55,
       title: 'Add push notifications',
       description: 'Enable push notifications for important updates',
