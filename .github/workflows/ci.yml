@@ -38,3 +38,28 @@ jobs:
       # - run: npx nx affected -t lint test build
       # - run: npx nx affected --parallel 1 -t e2e-ci
       - run: npx nx affected -t build
+
+      # upload to artifact
+      - uses: actions/upload-artifact@v3
+        with:
+          name: production-files
+          path: ./dist
+
+    deploy:
+      name: Deploy
+      needs: build
+      runs-on: ubuntu-latest
+      if: github.ref == 'refs/heads/main'
+
+      steps:
+        - name: Download artifact
+          uses: actions/download-artifact@v3
+          with:
+            name: production-files
+            path: ./dist
+
+        - name: Deploy to GitHub Pages
+          uses: peaceiris/actions-gh-pages@v3
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: ./dist
